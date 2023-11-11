@@ -4,10 +4,10 @@ from .services.xmas_service import XmasService
 
 api = FastAPI()
 
-@api.get("/")
-def hello(holiday_service = Depends(HolidayService)):
-    return holiday_service.get_hello("Micah")
+@api.get("/today")
+def today(holiday_service = Depends(HolidayService)):
+    return holiday_service.get_today()
 
-@api.get("/")
+@api.get("/xmas")
 def xmas(xmas_service = Depends(XmasService)):
     return xmas_service.days_until()
